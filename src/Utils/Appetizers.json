@@ -1,0 +1,30 @@
+[
+    {
+        "id": 4,
+        "number": 1,
+        "name": "EGG ROLL",
+        "category": "appetizer",
+        "imageURL": "https://www.mwd.com.tw/upload/mwd/article/202405060005_450px.png",
+        "description": "煎蛋捲是一道常見且受歡迎的料理，通常以打散的雞蛋為主要材料，加入各種配料後在平底鍋中煎製而成，然後捲起成圓筒狀或扁平狀。其外觀金黃、滑嫩，口感柔軟，內餡可以依喜好變化，包括火腿、起司、洋蔥、蔬菜、蘑菇，甚至海鮮等。",
+        "price": "0.001"
+    },
+    {
+        "id":5,
+        "number": 2,
+        "name":"NUGGETS",
+        "category":"appetizer",
+        "imageURL":"https://s7d1.scene7.com/is/image/mcdonalds/chicken-mcnuggets-6-pieces_832x822:nutrition-calculator-tile?resmode=sharp2",
+        "description": "外層酥脆、內裡嫩滑多汁，帶有濃郁的香氣和鹹香風味，深受各年齡層喜愛。",
+        "price":"0.001"
+    },
+    {
+        "id":6,
+        "number": 3,
+        "name":"SALAD",
+        "category":"appetizer",
+        "imageURL":"https://s7d1.scene7.com/is/image/mcdonalds/planp%E5%9B%9B%E5%AD%A3%E6%B2%99%E6%8B%89_832x822:nutrition-calculator-tile?wid=822&hei=822&dpr=off",
+        "description": "口感清爽、營養豐富，是輕食、配菜或健康飲食的常見選擇。它不僅能提供膳食纖維、維生素和蛋白質，也具有高度的自由度和變化性",
+        "price":"0.001"
+    }
+    
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "id":7,
+        "number":1,
+        "name":"STEAK",
+        "category":"mains",
+        "imageURL":"https://hips.hearstapps.com/hmg-prod/images/fotojet-13-1664537044.jpg?crop=0.490xw:0.980xh;0,0.0132xh&resize=640:*",
+        "description": "落在高溫鐵板上，油花與肉汁瞬間起舞，發出嘶嘶作響的旋律，像是食慾被點燃的序曲。",
+        "price":"0.002"
+    },
+    {
+        "id":8,
+        "number":2,
+        "name":"SPAGHETTI",
+        "category":"mains",
+        "imageURL":"/assets/spaghetti.jpg",
+        "description": "關於麵條與醬汁的戀愛詩。細長的麵身，彷彿時光拉出的絲線，載著陽光、小麥與海風的氣息；在沸水中翻滾後恰如其分地帶著彈性與溫度，等待與醬汁相遇，交織成一段段味覺的篇章。",
+        "price":"0.002"
+    },
+    {
+        "id":9,
+        "number":3,
+        "name":"TERIYAKI CHICKEN",
+        "category":"mains",
+        "imageURL":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSEQ9cpgQBHZMMESaBiYR7tZ_GSsouQz7xxQ&s",
+        "description": "來自東方的醬香情詩。當鮮嫩的雞腿肉遇上濃郁的照燒醬，彷彿陽光在醬汁中緩緩凝結，醬油的深沉、味醂的甘甜、砂糖的溫柔與清酒的香氣交織成一層晶亮的光澤，把每一寸肉質包裹得熠熠生輝。",
+        "price":"0.002"
+    }
+]

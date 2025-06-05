@@ -1,0 +1,29 @@
+[
+    {
+        "id":1,
+        "number":1,
+        "name":"GIN",
+        "category":"alcohol",
+        "imageURL":"/assets/gin.jpg",
+        "description": "金酒是一種以穀物為基底，經過蒸餾和香料調製而成的烈酒，通常具有清新的香氣和草本風味。它的主要成分是杜松子，這使得金酒在口感上帶有獨特的香氣和微苦的味道。金酒可以單獨飲用，也常用於調製各種雞尾酒，如馬丁尼、金湯力等。其清爽的特性使其成為夏季飲品的熱門選擇。",
+        "price":"0.001"
+    },
+    {
+        "id":2,
+        "number":2,
+        "name":"BLACKBERRY GIN",
+        "category":"alcohol",
+        "imageURL":"/assets/blgin.jpg",
+        "description": "黑莓金酒是一種以金酒為基底，加入新鮮黑莓或黑莓香料調製而成的雞尾酒。它通常具有濃郁的果香和微酸的口感，並且顏色鮮豔。這款飲品不僅適合單獨享用，也可以用來調製各種雞尾酒，增添風味和色彩。黑莓金酒的清爽和果香使其成為夏季派對或聚會的理想選擇。",
+        "price":"0.001"
+    },
+    {
+        "id":3,
+        "number":3,
+        "name":"GLEAM",
+        "category":"alcohol",
+        "imageURL":"/assets/glean.jpg",
+        "description": "它是品味與氛圍的融合。在微醺的時刻，它不張揚，但那股清涼與恬淡的芬芳，卻能在舌尖留下層層回味。",
+        "price":"0.001"
+    }
+]
