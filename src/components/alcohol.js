@@ -30,8 +30,8 @@ function Alcohol({ state }) {
         setCurrentProduct(`${product.name} x ${quantity}`);
         setIsLoading(true);
 
-        const totalPrice = (parseFloat(product.price) * quantity).toString();
-        const amount = { value: ethers.utils.parseEther(totalPrice) };
+        const totalPrice = (parseFloat(product.price) * quantity).toFixed(18).toString(); // 確保是字串，並保留足夠的精度
+        const amount = { value: ethers.parseEther(totalPrice) }; // 使用 parseEther 格式化
 
         try {
             const transaction = await contract.placeOrder(
@@ -47,6 +47,7 @@ function Alcohol({ state }) {
             setShowAlert(true);
         } catch (error) {
             console.error("Transaction failed:", error);
+            setErrorMessage("交易失敗！請檢查餘額或網絡狀態。");
         }
 
         setIsLoading(false);

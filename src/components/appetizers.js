@@ -29,8 +29,8 @@ function Appetizers({ state }) {
         const index = number - 1;
         const product = appetizers[index];
         const quantity = quantities[number] || 1; // 預設為 1
-        const totalPrice = (parseFloat(product.price) * quantity).toFixed(4); // 計算總價
-        const amount = { value: ethers.utils.parseEther(totalPrice) };
+        const totalPrice = (parseFloat(product.price) * quantity).toFixed(4).toString(); // 確保是字串
+        const amount = { value: ethers.parseEther(totalPrice) }; // 使用 parseEther 格式化
 
         setCurrentProduct(`${product.name} x ${quantity}`);
         setIsLoading(true);

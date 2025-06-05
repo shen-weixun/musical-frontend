@@ -24,13 +24,13 @@ function Mains({ state }) {
     const buy = async (number) => {
         const index = number - 1;
         const product = mains[index];
-        const quantity = quantities[number] || 1;
+        const quantity = quantities[number] || 1; // 預設為 1
+        const totalPrice = (parseFloat(product.price) * quantity).toFixed(4).toString(); // 確保是字串
+        const amount = { value: ethers.parseEther(totalPrice) }; // 使用 parseEther 格式化
 
         setCurrentProduct(`${product.name} x ${quantity}`);
         setIsLoading(true);
-
-        const totalPrice = (parseFloat(product.price) * quantity).toString();
-        const amount = { value: ethers.utils.parseEther(totalPrice) };
+        setErrorMessage(""); // 清空錯誤訊息
 
         try {
             const transaction = await contract.placeOrder(
@@ -39,13 +39,19 @@ function Mains({ state }) {
                 product.imageURL,
                 product.description,
                 totalPrice,
-                amount
+                amount // 傳遞金額
             );
             await transaction.wait();
             console.log("Transaction completed");
-            setShowAlert(true);
+            setShowAlert(true); // 顯示成功提示
         } catch (error) {
-            console.error("Transaction failed:", error);
+            if (error.code === 4001) {
+                console.error("Transaction rejected by user.");
+                setErrorMessage("交易被使用者拒絕！");
+            } else {
+                console.error("Error during transaction:", error);
+                setErrorMessage("交易失敗！請檢查餘額或網絡狀態。");
+            }
         }
 
         setIsLoading(false);
