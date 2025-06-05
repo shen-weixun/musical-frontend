@@ -57,7 +57,13 @@ function Header({ state, details }) {
           </Nav.Link>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Address: <a href="#" onClick={handleShow} style={{ color: "#E9A178" }}>{details.accounts}</a>
+              Address: {details.accounts ? (
+    <a href="#" onClick={handleShow} style={{ color: "#E9A178" }}>
+      {details.accounts}
+    </a>
+  ) : (
+    "未連接"
+  )}
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>
