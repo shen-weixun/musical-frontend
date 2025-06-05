@@ -4,7 +4,7 @@ import Banner from "./components/Banner";
 import MenuPage from "./components/Menu";
 import { useState, useEffect } from "react";
 import abi from "./abi/music.json";
-import { ethers, utils } from "ethers";
+import { ethers } from "ethers";
 import Mains from "./components/mains";
 import Appetizers from "./components/appetizers";
 import Alcohol from "./components/alcohol";
@@ -52,15 +52,15 @@ function App() {
             window.location.reload();
           });
 
-          const provider = new ethers.providers.Web3Provider(ethereum);
-          const signer = provider.getSigner();
-
+          const provider = new ethers.BrowserProvider(ethereum); // 更新為 BrowserProvider
+          const signer = await provider.getSigner(); // 使用 await
           const contract = new ethers.Contract(contractAddress, contractAbi, signer);
+
           setState({ provider, signer, contract });
 
           const { chainId } = await provider.getNetwork();
           let balance = await signer.getBalance();
-          balance = utils.formatUnits(balance);
+          balance = ethers.formatUnits(balance); // 更新格式化方法
           setAccountDetails({ accounts, chainId, balance, contractAddress });
         } else {
           alert("Please install MetaMask");
