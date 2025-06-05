@@ -25,12 +25,15 @@ function Header({ state, details }) {
 
   useEffect(() => {
     const contractBalance = async () => {
-      const balance = await contract.getBalance();        
+      if (!contract || !details.contractAddress) return;
+
+      const provider = contract.provider; // 獲取 provider
+      const balance = await provider.getBalance(details.contractAddress); // 使用 provider.getBalance
       console.log(formatEther(balance)); // 使用 formatEther
       setContractBalance(formatEther(balance)); // 使用 formatEther
     };
-    contract && contractBalance();
-  }, [contract]);
+    contractBalance();
+  }, [contract, details.contractAddress]);
 
   useEffect(() => {
     fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd')
