@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Container, Table, Button, Spinner, Alert } from "react-bootstrap";
-import { ethers } from "ethers";
+import { parseEther } from "ethers"; // 單獨導入 parseEther
 import { CartContext } from "./CartContext";
 
 function Cart({ state }) {
@@ -42,7 +42,7 @@ function Cart({ state }) {
             // 遍歷購物車商品進行交易
             for (const item of cartItems) {
                 const totalAmount = (parseFloat(item.price) * item.quantity).toString();
-                const amount = { value: ethers.utils.parseEther(totalAmount) };
+                const amount = { value: parseEther(totalAmount) }; // 使用 parseEther 格式化
 
                 const transaction = await contract.placeOrder(
                     item.name,
