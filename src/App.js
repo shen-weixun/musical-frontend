@@ -44,24 +44,16 @@ function App() {
             method: "eth_requestAccounts",
           });
 
-          window.ethereum.on("chainChanged", () => {
-            window.location.reload();
-          });
-
-          window.ethereum.on("accountsChanged", () => {
-            window.location.reload();
-          });
-
-          const provider = new ethers.BrowserProvider(ethereum); // 更新為 BrowserProvider
-          const signer = await provider.getSigner(); // 使用 await
+          const provider = new ethers.BrowserProvider(window.ethereum);
+          const signer = await provider.getSigner();
           const contract = new ethers.Contract(contractAddress, contractAbi, signer);
 
           setState({ provider, signer, contract });
 
           const { chainId } = await provider.getNetwork();
-          let balance = await signer.getBalance();
-          balance = ethers.formatUnits(balance); // 更新格式化方法
-          setAccountDetails({ accounts, chainId, balance, contractAddress });
+          const balance = await provider.getBalance(accounts[0]); // 使用 provider.getBalance
+          const formattedBalance = ethers.formatUnits(balance); // 格式化餘額
+          setAccountDetails({ accounts: accounts[0], chainId, balance: formattedBalance, contractAddress }); // 更新 accounts[0]
         } else {
           alert("Please install MetaMask");
         }
@@ -69,7 +61,16 @@ function App() {
         console.log(error);
       }
     };
+
     connectWallet();
+
+    window.ethereum.on("accountsChanged", () => {
+      connectWallet(); // 重新獲取帳戶和鏈資訊
+    });
+
+    window.ethereum.on("chainChanged", () => {
+      connectWallet(); // 重新獲取帳戶和鏈資訊
+    });
   }, []);
 
   return (
