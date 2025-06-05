@@ -1,5 +1,5 @@
 import { Navbar, Container, Button, Nav, Modal, ListGroup } from 'react-bootstrap';
-import { React, useEffect, useState, Row } from "react";
+import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatEther } from 'ethers'; // 單獨導入 formatEther
 import { FaShoppingCart } from 'react-icons/fa'; // 安裝 react-icons 並引入購物車圖標
@@ -61,12 +61,12 @@ function Header({ state, details }) {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               Address: {details.accounts ? (
-    <a href="#" onClick={handleShow} style={{ color: "#E9A178" }}>
-      {details.accounts}
-    </a>
-  ) : (
-    "未連接"
-  )}
+                <button onClick={handleShow} style={{ color: "#E9A178", background: "none", border: "none", cursor: "pointer" }}>
+                  {details.accounts}
+                </button>
+              ) : (
+                "未連接"
+              )}
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>
